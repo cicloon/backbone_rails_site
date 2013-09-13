@@ -1,0 +1,23 @@
+%article.voted-tracks-box
+
+  %header.row
+    .offset1.span6
+      %h2 Las canciones de la boda
+
+
+  .row.body
+
+    .offset2.span6
+
+      .row#voted-tracks-wrapper
+      .row#pagination-wrapper
+
+
+  .row.links
+    .offset7.span1
+      = link_to 'Volver', root_path, class: 'red-button'
+
+
+- content_for :floating_footer_content do
+  %p
+    ¡Vota las canciones que más te gusten!

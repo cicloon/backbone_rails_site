@@ -1,0 +1,54 @@
+@import 'base_imports';
+
+@media (min-width:980px) and (max-width: 1199px) {
+
+body{  
+
+  .login-form, .setup-email-box{
+    form.simple_form{          
+      .control-group label { width: 130px;}
+      .control-group .controls { margin-left: 150px;
+        input, textarea, .uneditable-input { width: 170px; }
+      }        
+    }
+    
+  }
+
+  h1{font-size: 30px; line-height: 36px;}
+  h2{font-size: 22px; line-height: 25px;}
+  h3{font-size: 19px; line-height: 22px;}
+  h4{font-size: 18px; line-height: 24px;}
+  h5{font-size: 17px; line-height: 23px;}
+  h6{font-size: 16px; line-height: 22px;}
+
+  
+  .login-box .login-form form .form-actions{ padding-left: 292px;}
+  .floating-box footer .footer-content{ width: 720px; }
+  .floating-box > section > header{ width: 740.5px;}
+
+  & > header{
+    nav ul li{ margin-right: 15px;
+      a { font-size: 18px; }
+    }
+    .header-highlight #happy-us .layout-happy_us{ left: 70px; }
+  }
+
+  .setup-email-box .row form.simple_form .control-group{
+    label.email{ width: 55px; }
+    div.controls{ margin-left: 0px; }
+  }
+
+
+
+  #rings { padding-left: 5px;}
+
+  #about-us-images { margin-top: 30px; 
+    #us-1 { left: 105px; top: 190px; @include rotateZ(22deg); @include about-us-transition;
+      & > div {background-position: 0 -410px;} }
+    #us-2 { left: 60px; top: 80px; @include rotateZ(9deg); @include about-us-transition; 
+      & > div {background-position: 0 -260px;}  } 
+    #us-3 { left: 50px; top: -10px; @include rotateZ(-15deg); @include about-us-transition;
+      & > div {background-position: 0 -109px;} }    
+  }
+
+}}

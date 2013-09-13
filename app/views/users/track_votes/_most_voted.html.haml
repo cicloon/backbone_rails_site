@@ -1,0 +1,8 @@
+%h5 Lo + votado
+- if @most_voted_tracks.blank?
+  %p Nadie ha votado ningúna canción, aún, ¿por qué no te animas a votar alguna?
+-else
+  #most-voted-tracks-wrapper
+       
+
+= link_to("Ver todas", voted_tracks_path, class: 'see-all')

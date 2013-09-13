@@ -1,0 +1,20 @@
+.info
+  %strong.rank
+    = "#{@rank}"
+  %strong.title
+    = "- #{@track_name}"
+%p.artist-album
+  %small
+    = @truncated_artist_album
+%p.votes
+  = "Nº de votos: #{@user_voted_tracks_count}"
+.actions.clearfix
+  - if @voted == true
+    %span
+      Has votado esta canción,              
+    %a.downvote{href: '#'}
+      ¿ya no te gusta?
+  - else
+    %a.vote{href: '#'}
+      Vótala          
+

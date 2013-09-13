@@ -1,0 +1,7 @@
+.body
+  %blockquote
+    = @body
+
+.signers
+  %span= @formatted_invitee_names
+

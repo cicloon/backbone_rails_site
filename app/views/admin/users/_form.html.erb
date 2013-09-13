@@ -1,0 +1,22 @@
+<%= semantic_form_for [:admin, @user] do |f| %>
+
+  <%= f.inputs "Datos básicos" do %>
+    <%= f.input :user_name %>
+    <%= f.input :email %>
+    <% if @user.new_record? %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+    <% end %>
+  <% end %>
+
+  <%= f.inputs :name => 'Invitado #%i', :for => :invitees do |inv| %>
+    <%= inv.input :name %>
+    <%= inv.input :coming, :as => :select, :collection => { "Sin decidir" => Invitee::NOT_DECIDED, "Confirmado" => Invitee::CONFIRMED, "Rechazado" => Invitee::DECLINED } %>
+    <%= inv.input :can_be_child %>
+    <%= inv.input :adult_menu %>
+    <%= inv.input :_destroy, :label => "Marcar para BORRAR", :as => :boolean %>  
+  <% end %>
+
+  <%= f.actions %>  
+
+<% end %>

@@ -1,0 +1,102 @@
+%article.row
+  .span12.shadowed-box
+    .row
+      .span7
+        .text-box
+          %h2 ¡Nos casamos!
+          = t(:getting_married_text, scope: [:copy_copter_text], default: 'Getting married paragraph').html_safe
+      .span5
+        #rings.img-box
+          .home-rings
+
+- unless current_user.revised_invitation?
+
+  %aside.row
+    .offset2.span8#coming
+      .row
+        .span6
+          .text-box
+            %h2 ¡Aún no habéis confirmado!
+            %p
+              ¡¡Haz click aquí y podréis confirmar vuestra asistencia a la boda del año!!
+        .span1#coming-button-box
+          = link_to "Confirmar", users_invitees_path, class: 'red-button'
+
+%hr.layout-separator/
+%article.row
+  .span12
+    .row
+      .span5
+        #wedding-map
+          #map-container
+      .span7
+        .text-box
+          %h2 La boda
+          %p
+            La boda se celebrará en 
+            = marker_link(:church_link)
+            a las 19:00.
+          %p 
+            Despues nos iremos de comilona al 
+            = marker_link(:ranch_link)
+            donde estaremos hasta que el cuerpo aguante.
+          %p
+            Y unos días después nos iremos de ruta por USA a 
+            = marker_link(:honeymoon_link1)
+            ,
+            = marker_link(:honeymoon_link2)
+            y 
+            = marker_link(:honeymoon_link3)
+            (posiblemente tengamos hueco en la maleta por si alguno quiere venir)
+
+%hr.layout-separator-invert/
+.row
+  %article.span7.shadowed-box
+    .row
+      .span3
+        .text-box
+          %h2 Sobre nosotros
+        #about-us-images
+          #us-1.us-image-box
+            .home-us_1
+          #us-2.us-image-box
+            .home-us_2
+          #us-3.us-image-box
+            .home-us_3
+      .span4
+        .text-box
+          %p 
+            Somos 
+            %strong Alex 
+            y 
+            %strong Cristy 
+            y esta es la web de nuestra boda. Como bien sabéis ¡¡Nos casamos!! y nos hace mucha ilusión poder compartirlo con vosotros.
+          %p Queremos compartir un poco de nuestra historia con vosotros, es por ello que os queremos comentar lo que nos ha pasado a lo largo de estos 3 años juntos.
+          %p Nos conocimos un 27 de Junio de casualidad, y creemos que el destino nos unió ya que hemos estudiado en el mismo colegio, viviamos en el mismo pueblo, teníamos amigos en común, nos hemos cruzado infinidad de veces en cumpleaños y jamás habíamos hablado hasta ese momento.(Qué cursi quedó)
+          %p 
+            Y ahora miradnos, viviendo juntos, a puntos de casarnos y con 4 animales en casa: 1 perrito llamado
+            %strong Thor
+            , 1 erizo llamado 
+            %strong Gandalf
+            y 2 tortugas llamadas 
+            %strong Ruby y Rails. 
+            Sí, por si no os habéis dado cuenta nos encantan los animales. :-)
+          
+
+  %article.span5.shadowed-box.spotifiery
+    .text-box
+      %h2 La música
+      %h3 ¿Qué música te gustaría escuchar?
+    .row
+      .span5
+        .search-track
+
+        .row
+          .span3.spotifiery-tracks
+            .search-results
+              %p
+                Esto está muy vacío, ¿por qué no buscas alguna canción que te guste?
+              %ul
+          .most-voted-wrapper
+            .most-voted
+              = render partial: 'users/track_votes/most_voted'

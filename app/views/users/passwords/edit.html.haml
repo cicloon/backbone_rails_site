@@ -1,0 +1,20 @@
+%article.setup-email-box
+  %header.row
+    .offset2.span6
+      %h2 Introduce tu nueva contraseña
+  .row
+    .offset2.span6
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), :method => :put, :html => {:class => 'form-inline'}) do |f|
+        = f.input :password, :wrapper => :prepend do
+          = content_tag :span, "", :class => "add-on iconic-key_fill"
+          = f.input_field :password, placeholder: 'Introduce tu nueva contraseña'
+        = f.input :password_confirmation, label: "Confírmala", :wrapper => :prepend do
+          = content_tag :span, "", :class => "add-on iconic-key_fill"
+          = f.input_field :password_confirmation, placeholder: 'Confirma tu contraseña', label: "Confírmala"          
+        .form-actions
+          = f.button :submit, 'Enviar', :class => 'btn btn-primary'
+
+
+- content_for :floating_footer_content do
+  %p
+    = "Introduce tu nueva contraseña y se cambiará automáticamente."

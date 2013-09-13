@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    = render 'layouts/head'
+  %body{:class => controller_name}
+    .container
+      .floating-box.row
+        %section.shadowed-box.offset1.span10
+          %header.clearfix
+            %hgroup
+              %h1 Alex y Cristy
+              %h2
+                %time 17 de Agosto de 2013
+              %h3
+                %address Santa María de la Alhambra
+          = display_flash(flash)
+          = yield
+          %footer.row
+            .span10.centered
+              .footer-content
+                = yield :floating_footer_content

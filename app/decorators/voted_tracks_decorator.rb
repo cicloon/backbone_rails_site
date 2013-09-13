@@ -1,0 +1,3 @@
+class VotedTracksDecorator < PaginationDecorator
+  
+end

@@ -1,0 +1,47 @@
+
+@mixin shadowed-box{
+
+  @include border-radius(15px, 25px);
+  background-color: $transparent-black;
+  @include box-shadow( $black-shadow 0px 7px 4px, $white-shadow 0 -3px 4px );
+
+}
+
+@mixin floating-box($percentage){
+    margin-top: #{$percentage - 4}#{"%"} ;
+    margin-top: #{$percentage}vh ;  
+}
+
+
+@mixin full-shadow($offset, $radius){
+  @include box-shadow(
+    $black-shadow 0px #{$offset} #{$radius}, 
+    $black-shadow 0px #{"-"}#{$offset} #{$radius}, 
+    $black-shadow #{$offset} 0px #{$radius}, 
+    $black-shadow #{"-"}#{$offset} 0px #{$radius} );  
+}
+
+
+@mixin button-gradient($first-color, $second-color){
+  @include background-image(linear-gradient($first-color 25%, $second-color 84%, $second-color 120% )  )
+}
+
+
+@mixin button-hover-transition($property){
+  @include transition-property($property);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-in);  
+}
+
+@mixin input-hover-transition($property){
+  @include transition-property($property);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-in);  
+}
+
+@mixin about-us-transition{
+  @include transition-property(transform, top, left, box-shadow);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-in);    
+}
+

@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    = render 'layouts/head'
+  %body{:class => controller_name}
+    = render :partial => 'layouts/application_header'
+    .container
+      = display_flash flash
+      = yield
+    = render :partial => 'layouts/application_footer'

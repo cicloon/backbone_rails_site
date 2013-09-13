@@ -1,0 +1,10 @@
+// Change twitter bootstrap variables here
+$baseFontSize: 14px;
+$baseLineHeight: 18px;
+$linkColor: #B22E48;
+$linkColorHover: lighten($linkColor, 10%);
+$inputBorderRadius: 4px;
+
+// Import original bootstrap
+@import "twitter/bootstrap";
+@import "twitter/bootstrap-responsive";

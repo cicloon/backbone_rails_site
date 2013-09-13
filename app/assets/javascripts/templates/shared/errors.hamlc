@@ -1,0 +1,6 @@
+.alert.alert-error
+  %p Oops, corrige los siguientes errores para continuar.
+  %ul
+    - for i, error of @errors
+      - console.log i
+      %li= error

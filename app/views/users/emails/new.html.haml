@@ -1,0 +1,18 @@
+%article.setup-email-box
+  %header.row
+    .offset2.span6
+      %h2 ¿Nos dejas tu email?
+  .row
+    .offset2.span6
+      = simple_form_for(@user, :url => users_email_path, :method => :post, :html => {:class => 'form-inline'}) do |f|
+        = f.input :email, :wrapper => :prepend do
+          = content_tag :span, "", :class => "add-on iconic-mail"
+          = f.input_field :email
+        .form-actions
+          = f.button :submit, 'Enviar', :class => 'btn btn-primary'
+      %p 
+        Déjanos tu email y te avisaremos cuando haya alguna novedad en la web.
+
+- content_for :floating_footer_content do
+  %p
+    = "¿Quieres saltarte esto? Haz click #{link_to('aquí', root_path)}.".html_safe

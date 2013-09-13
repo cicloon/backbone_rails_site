@@ -1,0 +1,9 @@
+%li{id: dom_id(invitee)}
+  %p 
+    = invitee.name
+  %span.actions
+    = link_to 'Confirmar', confirm_users_invitee_path(invitee), id: 'confirm', remote: true, method: :post, disabled: invitee.coming?
+    = link_to 'Rechazar', decline_users_invitee_path(invitee), id: 'decline', remote: true, method: :post, disabled: invitee.coming.eql?(false)
+  .invitee-text
+    - unless invitee.not_decided?
+      = render partial: 'invitee_text', locals: {invitee: invitee}

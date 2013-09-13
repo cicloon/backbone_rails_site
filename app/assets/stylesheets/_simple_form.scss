@@ -1,0 +1,54 @@
+@import "base_imports";
+
+form.simple_form{
+  .control-group{
+    
+    label{ @include text-shadow($black-shadow 1px 1px 0px); }
+
+    .controls{
+      input, textarea{ 
+        @include box-shadow( $black-shadow 2px 2px 3px); 
+        border-color: $separator-color; 
+        @include input-hover-transition(box-shadow);
+        &:focus{ @include box-shadow( rgba($layout_red, 0.9 ) 2px 2px 2px); };
+      }
+      .input-prepend{ 
+        @include box-shadow($black-shadow 2px 2px 3px);
+        @include border-radius($base-border-radius);
+        @include input-hover-transition(box-shadow);
+
+        input{border-left: none; font-size: 14px; line-height: 18px; @include box-shadow(none);  }
+        span.add-on{
+          border-right: none; 
+          background-color: white; border-color: $separator-color;          
+        }
+        &.clear-shadow{@include box-shadow( transparent 0px 0px 0px) }
+      }
+      
+    }
+  }
+
+  .form-actions{background: none; border: none; padding-top: 4px;
+    .btn{ padding: 7px 15px; @include border-radius(8px);
+      @include box-shadow($black-shadow 3px 3px 2px);
+      @include button-hover-transition(box-shadow);
+      @include button-hover-transition(border);
+
+      &:hover{@include box-shadow(rgba(white, 0.4) 1px 1px 1px, $black-shadow 2px 2px 2px inset );  border-color: white;}  ;
+
+    }     
+    .btn-primary{ @include button-gradient(#AD2C45, #E03959); font-style: italic; 
+      &:hover{background-position: 0px 0px; };
+    }    
+  }
+
+  &.form-inline{ width: 410px; margin: auto;
+    div{ display: inline-block;
+      label{margin-right: 10px;}
+      form-actions{padding-left: 10px; padding-right: 0px;}
+    }
+    .form-actions{ margin: 0px; }
+    
+  } 
+
+}

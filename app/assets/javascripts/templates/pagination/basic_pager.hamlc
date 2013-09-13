@@ -1,0 +1,22 @@
+.pagination  
+  %a.serverfirst{href: '#'}= "<<"
+  - if @currentPage > @firstPage      
+    %a.serverprevious.previous_page{href: '#'}= "Anterior"
+  - else      
+    %span.previous_page.disabled
+      Anterior
+
+  - for p in @pageSet
+    - if @currentPage == p
+      %em.current= p          
+    -else
+      %a.page{href: "/anuncios?#{@queryString}" }= p
+
+  - if @currentPage < @totalPages      
+    %a.servernext.next_page{href: '#'}= "Siguiente"
+    
+  - else
+    %span.next_page.disabled
+      Siguiente
+
+  %a.serverlast{href: '#'}= ">>"

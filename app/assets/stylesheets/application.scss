@@ -1,0 +1,335 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@import "app_bootstrap";
+@import "iconic/*.png";
+@import "layout/*.png";
+@import "home/*.png";
+// @import "home/*.jpg";
+
+@include all-iconic-sprites;
+@include all-layout-sprites;
+@include all-home-sprites;
+
+@import "simple_form";
+
+body{
+
+
+  background: image-url('natural_paper.png');
+
+  h1, h2, h3, h4, h5, h6, em{ font-family: "Merienda one"; font-weight:bold; font-style: italic; opacity: 0.99;}
+  p, span, strong, em{ font-family: "Courgette", "Arial Black"; line-height: 22px; font-size: 16px;}
+  
+
+  h1{font-size: 32px; line-height: 36px;}
+  h2{font-size: 26px; line-height: 30px; padding: 0 3px;}
+  h3{font-size: 22px; line-height: 26px; padding: 0 3px;}
+  h4{font-size: 20px; line-height: 24px;}
+  h5{font-size: 19px; line-height: 23px;}
+  h6{font-size: 18px; line-height: 22px;}
+
+  .shadowed-box{
+    @include shadowed-box;
+    font-family: "Merienda one";
+  }
+
+  .centered *{  margin:auto;  }
+
+  .display-none { display: none; }
+
+  a.red-button{
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px; @include border-radius(8px);
+    @include box-shadow($black-shadow 3px 3px 2px);
+    @include button-gradient(#AD2C45, #E03959); font-style: italic; 
+    @include input-hover-transition(border);
+    @include button-hover-transition(box-shadow);
+
+    &:hover{
+      @include box-shadow(rgba(white, 0.4) 1px 1px 1px, $black-shadow 2px 2px 2px inset );
+
+      background-position: 0px 0px;};      
+  }
+
+
+  // Header common styles
+  .floating-box > section > header, & > header{
+    @include border-radius(9px);
+    @include full-shadow(3px, 4px);
+    padding: 20px 30px;    
+    background-color: $layout_bg;
+    border: 1px solid white;
+
+    h1{ color: $layout_h1_color; float: left; font-style: italic;  line-height: 170%; 
+      @include text-shadow(rgba(black, 0.8) 0px 2px 5px);
+    }
+
+    h2, h3{color: $layout_red; float:right;}
+    h2{line-height: 20px;}
+    h3{line-height: 24px;}
+    h2 *, h3 *{margin-bottom: 0px; float: right; @include text-shadow($black-shadow 0px 2px 5px); font-style: italic;}
+    h2 *{margin-right: 13%;}
+  }
+
+  // Application layout header
+  & > header{ border-left: none; border-right: none; @include border-radius(0px); @include box-shadow($black-shadow 0px 8px 9px);
+    min-height: 100px; margin-bottom: 110px;
+    nav { font-family: "Merienda One";
+      > * {float: left;}
+      h1 { width: auto; }
+      ul { margin: 0 0 0 0;
+        li {list-style: none; float:left; margin-right: 20px;
+          a {             
+            &:hover { text-decoration: none; color: white; }
+            span { color: $layout_text_color; font-size: 18px; font-style: normal; font-family: "Merienda One";
+              &:hover { color: white; }
+            }            
+          }
+          
+          &.active > a span{color:white;}
+        }
+      }
+    } 
+
+    .header-highlight{ 
+      h2{ width: 100%;}
+      #happy-us{ position: relative;        
+        .layout-happy_us{width: 200px; height: 150px; position: absolute; left: 95px;}
+      }
+    }
+
+    .session-box{ text-align: center;
+      span{color: white;}  
+
+    }
+
+  }
+  
+  $header-icons: home-icon photo-icon signs-icon;
+  @each $icon in $header-icons{
+    li.active .layout-#{$icon}, li .layout-#{$icon}:hover{ @include layout-sprite(#{$icon}-active) };    
+  }
+
+
+  // Application layout footer
+  & > footer{ height: 150px; margin-top: 45px; color: white;
+    @include box-shadow($black-shadow 0px -8px 9px);
+    padding: 20px 30px;    
+    background-color: $layout_bg;
+    border-top: 1px solid white;
+    #made-by{ text-align: center;
+     p{font-family: "Bauhaus 93";}      
+    }
+
+    #follow-us{ margin-top: 30px; 
+      p, span {font-family: "Merienda One"; font-weight: 600;}      
+      & > div > p { line-height: 45px;}
+      & > div > * { float: left; }
+      .big-key { font-family: "Helvetica"; font-weight: 500; font-size: 45px; line-height: 38px; margin: 0 10px 0 10px;}
+      #social-box ul { margin: 0;
+        li:first-child { width: 60px; color: $layout_text_color;}
+        li {display: inline-block;}
+        a{height: 23px; width: 23px; text-indent: -99999px; display: inline-block; text-align: center; line-height: 24px;}
+      }            
+    }
+  }
+
+  .floating-box{    
+    @include floating-box(15);
+    & > section > header{ position: relative; width: 930.5px;  left: -10.5px;
+      h1{width: 40%;}
+      h2, h3{ width: 60%; }
+      h2 *{ margin-right: 13%; }
+    }
+    footer{margin-top: 10px; margin-bottom: 20px;
+      .footer-content{ width: 900px; padding-top: 10px; border-top: 1px dashed $layout_bg; 
+        p{ text-align: center; font-family: "Gill Sans"; font-size: $footer-font-size; line-height: $footer-line-height;}
+      }      
+    }
+  }  
+
+  .login-box{
+    margin-top: 25px;
+    label{ font-size: 18px; font-weight: bold;}
+    .login-form form, .login-text{padding-top: 10px;}
+    .login-text p{padding-top: 0px;}
+    .login-text p{padding-left: 10px; padding-right: 30px;}
+    .login-form form{border-right: 1px solid $separator-color;
+      .form-actions{padding-left: 355px;}
+    }       
+  }
+
+  .setup-email-box{ margin-top: 10px;
+    & > header h2{ }      
+    form.simple_form{ margin-top: 10px; }
+  }
+
+
+  .text-box{ padding: 15px;
+    h2{font-style: italic; font-weight: bold; margin-bottom: 15px;}
+    p {padding-left: 15px;}
+  }
+
+  hr { width: 720px; height:10px; margin:auto; border:none;}
+  hr.layout-separator, hr.layout-separator-invert { margin-top: 30px; margin-bottom: 30px;}
+
+  #rings { padding: 69px 0px 0px 50px;
+   & > div{ width: 300px; height: 121px;}
+  }
+
+
+  #coming { margin-top: 30px; border: 1px dashed $layout_h1_color; @include border-radius(15px 25px);
+    #coming-button-box{ padding: 85px 0 0 0;
+      a { margin-left: 20px }
+    }
+  }
+
+  #wedding-map {padding: 20px 0px 20px 25px;
+    #map-container {background-color: white; height: 250px; } 
+  }
+
+  #about-us-images{ position: relative; padding-left: 20px;
+    & > * { position: absolute; }
+    .us-image-box{  background-color: white; padding: 5px; @include box-shadow($black-shadow 4px 4px 7px);
+      & > div { height: 149px; width: 113px;  background-size: 223%; }
+    }
+    #us-1 { left: 110px; top: 10px; @include rotateZ(-12deg); @include about-us-transition;
+      & > div {background-position: 0 -410px;} }
+    #us-2 { left: 74px; top: 120px; @include rotateZ(5deg); @include about-us-transition; 
+      & > div {background-position: 0 -260px;}  } 
+    #us-3 { left: 100px; top: 235px; @include rotateZ(-15deg); @include about-us-transition;
+      & > div {background-position: 0 -109px;} }
+  }
+
+  #about-us-images:hover{
+    #us-1 { left: 265px; top: 0px; @include rotateZ(0deg); @include scale(1.10, 1.10);
+      & > div {background-position: 0 -410px;} }
+    #us-2 { left: 120px; top: 0px; @include rotateZ(0deg); @include scale(1.10, 1.10);
+      & > div {background-position: 0 -260px;}  } 
+    #us-3 { left: -25px; top: 0px; @include rotateZ(0deg); @include scale(1.10, 1.10);
+      & > div {background-position: 0 -109px;} }    
+    
+  }
+
+  &.invitees{
+
+    .body{
+      .text{margin-bottom: 15px}
+      ul { margin: 0 0 0 0;
+        li {list-style: none; float:left; margin-right: 20px; width: 260px; @extend .clearfix;
+          > p{float: left; margin-bottom: 0}
+          .actions{ @extend .clearfix; float:left ; margin-left: 15px;
+            a{height: 16px; min-width: 16px; text-indent: -99999px; display: block; float: left; margin-right: 10px;
+              &#confirm{ @extend .iconic-approve; &:hover{@extend .iconic-approve_hover;} &:disabled{@extend .iconic-approve_disabled;} }
+              &#decline{ @extend .iconic-recline; &:hover{@extend .iconic-recline_hover;} &:disabled{@extend .iconic-recline_disabled;} }
+
+           }            
+          }
+          .invitee-text{clear: both; min-height: 27px;}
+        }  
+      }      
+    }
+
+    .links{margin-top: 15px}
+    footer{margin-top: 25px; }
+
+  }
+
+  .spotifiery{ min-height: 300px;
+
+    ul{ margin: 0; }
+    ol{ margin: 0 0 0 10px;}    
+    li{ list-style: none; margin-bottom: 10px;  border-bottom: 1px solid black;
+      small{ margin-left: 10px; width: 100%; font-size: 10px; color: gray;}
+      .actions{ float: right; margin-top: 5px; margin-bottom: 10px; width: 179px;
+        & > *{ float: right;}
+        a{ text-align: right }
+      }
+      &:last-child{ border: none; }
+    }
+    .search-results{ padding: 10px; background-color: $transparent-black; margin: 10px 5px 10px 15px; 
+      @include border-radius(9px); min-height: 95px;
+      p{ margin-top: 15px; margin-bottom: 0;}    
+      ul{display: none;}  
+    }
+
+    .most-voted-wrapper{ margin-left: 15px; float: left; width: 180px }
+
+    .most-voted{
+      margin-right: 10px;
+
+      ol{ height: 365px; overflow-y: scroll; overflow-x: hidden; border-bottom: 1px solid gray; margin-bottom: 5px; }
+
+      li{ list-style: none; @extend .clearfix;
+        p{margin-bottom: 5px;}
+        .title{ font-size: 14px; margin-top: -19px;}
+        .actions{ float: right;
+          span{font-size: 14px;}
+        }
+        .votes{font-size: 12px; float: right; margin-bottom: 0px;}
+
+      }
+      
+      a.see-all{ float: right; margin: 5px 0px 7px 0px }
+    }
+
+
+  }
+
+  .voted-tracks-box{
+    header{ margin: 10px 0px}
+    li{ list-style: none; margin-bottom: 15px; @extend .clearfix; border-bottom: 1px solid gray;
+      .info{float: left; width: 100%;}
+      .votes{float: left;}
+      .actions{float: right;}
+      .rank{ font-family: "Merienda One"}
+    }
+    .links{ margin-bottom: 35px; }
+  }
+
+  #signs{ margin-left: -10px; margin-top: 20px; }
+  #new-sign-form{ margin-top: 10px; }
+  .sign-box{  background-color: white;  margin: 0px 10px 20px 10px; box-sizing: border-box;
+              padding: 10px; @include box-shadow(2px 2px 4px $black-shadow);
+
+    .body{ padding-top: 1px; min-height: 135px;
+      blockquote{ padding: 0; margin: 0 0 0 0; border: 0; font-size: 16px; color: lighten($layout_bg, 35%);
+        font-family: "Merienda One"; font-style: italic; text-align: center;  }
+      blockquote:before{ content: '"'}
+      blockquote:after{ content: '"' }
+    }          
+    .signers span{ float: right; text-align: right; font-size: 14px; }
+
+  }
+
+
+}
+
+
+/* Medium size screen */
+@import 'media_queries/medium_screen';
+
+/* Small size screen landscape tablet*/
+@import 'media_queries/landscape_tablet';
+
+ 
+/* Landscape phone to portrait tablet */
+@import 'media_queries/portrait_tablet';
+
+
+/* Landscape phones and down */
+@import 'media_queries/landscape_phone';

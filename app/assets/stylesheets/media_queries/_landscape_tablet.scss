@@ -1,0 +1,53 @@
+@import 'base_imports';
+
+@media (min-width: 768px) and (max-width: 979px) { 
+
+body{
+
+  h1{font-size: 30px; line-height: 36px;}
+  h2{font-size: 22px; line-height: 26px;}
+  h3{font-size: 19px; line-height: 22px;}
+  h4{font-size: 18px; line-height: 24px;}
+  h5{font-size: 17px; line-height: 23px;}
+  h6{font-size: 16px; line-height: 22px;}
+
+  .floating-box footer .footer-content { width: 580px; }
+  .floating-box > section > header { width: 561.5px;}
+
+  .login-box .login-form form{
+    label{ float: none; text-align: left; margin-left: 21px; }
+    .controls{ margin: 8px 0 0 22px; }
+    .form-actions { padding-left: 199px; }
+  }
+  
+  & > header{
+   .header-highlight #happy-us .layout-happy_us { left: 10px; }
+   h2{font-size: 18px; text-align: center;
+    time{ margin-right: 0; float: none;}
+   }
+   h3{ font-size: 14px; margin-top: 0px;}
+
+   nav ul li a div{ width: 36px; height: 36px;  }
+   
+    
+  }
+
+  #rings { padding: 125px 0 0 0;
+    & > div { width: 250px; height: 100.8px; background-size: 95%}
+  }
+
+  #about-us-images { margin-top: 30px; 
+    #us-1 { left: 120px; top: 200px; @include rotateZ(22deg); @include about-us-transition;
+      & > div {background-position: 0 -410px;} }
+    #us-2 { left: 100px; top: 100px; @include rotateZ(25deg); @include about-us-transition; 
+      & > div {background-position: 0 -260px;}  } 
+    #us-3 { left: 40px; top: 10px; @include rotateZ(-15deg); @include about-us-transition;
+      & > div {background-position: 0 -109px;} }    
+  }
+
+  footer #follow-us { 
+    p {font-size: 12px;}
+    #social-box ul li:first-child { font-size: 14px; width: 50px}
+  }
+
+}}

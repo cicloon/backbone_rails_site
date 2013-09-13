@@ -1,0 +1,26 @@
+
+%form.offset3.span8.simple_form#new-sign-form
+  .row
+    .span8
+      %h3 
+        ¡Escríbenos algo!
+  .row
+    .span8#errors
+
+  .row
+    %fieldset.span3
+      %p ¿De quién es la firma?
+      - for index, invitee of @invitees
+        - console.log invitee.name
+        %label.checkbox
+          %input{type: 'checkbox', value: invitee.id, class: 'invitee-id'}    
+
+          = invitee.name
+    %fieldset.span5      
+      %p Escribe la firma aquí (
+        %span#remaining-chars 140 
+        caracteres restantes)
+      %textarea.span5#sign-body{rows: 3}
+
+    .form-actions.clearfix
+      %button{type: 'submit', class: 'btn btn-primary pull-right'}= 'Enviar'

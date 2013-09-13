@@ -1,0 +1,44 @@
+%header
+  .container
+    .row
+      %nav.span4
+        = link_to root_path do
+          %h1 Alex y Cristy
+        %ul.clearfix
+
+          %li{class: header_link_class('home') }
+            = link_to root_path do
+              .layout-home-icon
+              %span.visible-desktop Home
+          
+
+          %li.coming-soon{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Proximamente' }
+            = link_to root_path do
+              .layout-photo-icon
+              %span.visible-desktop Fotos
+
+          %li.coming-soon{class: header_link_class('signs') }
+            = link_to signs_path do
+              .layout-signs-icon
+              %span.visible-desktop Libro de firmas
+          
+
+      .span4.header-highlight.clearfix
+        %hgroup.clearfix
+          %h2
+            %time
+              17 de Agosto de 2013
+          %h3
+            %address
+              Santa María de la Alhambra
+        #happy-us
+          .layout-happy_us
+      .offset1.span3.session-box.clearfix
+        - if current_user
+          %span
+            Hola #{current_user.user_name}
+          %br/
+          - if current_user.revised_invitation?
+            = link_to('Asistencia', users_invitees_path)
+            %br/
+          = link_to('Desconectar', destroy_user_session_path, :method => :delete )

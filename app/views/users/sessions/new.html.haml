@@ -1,0 +1,18 @@
+.row.login-box
+  %aside.login-text.span5.hidden-desktop.hidden-tablet.visible-phone
+    %p= t(:login_text_1, scope: [:copy_copter_text], default: 'Login paragraph')
+  %article.login-form.span5
+    = simple_form_for(resource, :as => resource_name, :url => new_session_path(resource_name), |
+      :html => {class: 'form-horizontal', autocomplete: 'off' }) do |f|                                           |
+      = f.input :user_name, :wrapper => :prepend do
+        = content_tag :span, "", :class => "add-on iconic-user"
+        = f.input_field :user_name, placeholder: 'Introduce tu usuario'
+      = f.input :password, :wrapper => :prepend do
+        = content_tag :span, "", :class => "add-on iconic-key_fill"
+        = f.input_field :password, placeholder: 'Introduce tu contraseña'
+      .form-actions
+        = f.button :submit, t(:'login.enter'), :class => 'btn btn-primary'
+  %aside.login-text.span5.hidden-phone
+    %p= t(:login_text_1, scope: [:copy_copter_text], default: 'Login paragraph')
+- content_for :floating_footer_content do
+  %p= t(:forgot_password, scope: [:copy_copter_text], link: link_to(t(:forgot_password_link, scope: [:copy_copter_text]), new_user_password_path) ).html_safe

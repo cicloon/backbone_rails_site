@@ -1,0 +1,8 @@
+%form#new_track_search.simple_form.form-inline{"accept-charset" => "UTF-8", :novalidate => "novalidate", autocomplete: 'off'}
+  .control-group.string.optional    
+    .controls
+      .input-prepend
+        %span.add-on.iconic-magnifying_glass
+        %input#track_search_query.string.optional{:name => "track_search[query]", :size => "50", :type => "text"}
+  .form-actions
+    %input.btn.btn.btn-primary.perform-search{:name => "commit", :type => "submit", :value => "Buscar"}

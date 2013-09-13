@@ -1,0 +1,25 @@
+%article.invitees-box
+
+  %header.row
+    .offset1.span6
+      %h2 ¿Os apuntáis?
+
+
+  .row.body
+    .offset2.span6
+      %p.text
+        Desde aquí podrás decirnos quién viene o quién no. 
+
+      %ul
+        = render partial: 'invitee', collection: @invitees
+
+
+  .row.links
+    .offset7.span1
+      = link_to 'Volver', root_path, class: 'red-button'
+
+
+
+- content_for :floating_footer_content do
+  %p 
+    No importa si más adelante cambiais de opinión podéis volver a cambiar vuestra asistencia en cualquier momento desde el apartado 'asistencia'.

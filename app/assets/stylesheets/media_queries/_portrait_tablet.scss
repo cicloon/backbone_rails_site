@@ -1,0 +1,28 @@
+@import 'base_imports';
+
+@media (max-width: 767px) { 
+
+body{  padding: 0;
+
+  .floating-box{ margin-top: 0; @include border-radius(0px);
+
+  }
+
+  .shadowed-box{ @include border-radius(0px); }
+
+  .login-box{
+    .login-text p{ margin: auto; text-align: center; padding: 15px; }
+  }
+
+form.simple_form{
+  .control-group{ width: 490px; margin: auto;
+    input{ width: 200px;}
+
+  }
+
+  .form-actions{
+    .btn-primary{ float: right; margin-right: 10%; }
+  }
+}
+
+}}

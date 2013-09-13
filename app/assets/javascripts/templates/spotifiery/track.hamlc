@@ -1,0 +1,17 @@
+
+%strong  
+  = @track_name
+%br
+%small
+  = @truncated_artist_album
+
+.actions.clearfix
+  - if @voted == true
+    %span
+      Has votado esta canción,
+      %br
+    %a.unvote{href: '#'}
+      ¿ya no te gusta?
+  - else
+    %a.vote{href: '#'}
+      Vótala

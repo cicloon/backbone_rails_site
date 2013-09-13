@@ -1,0 +1,18 @@
+%article.setup-email-box
+  %header.row
+    .offset2.span6
+      %h2 ¿Has olvidado tu contraseña?
+  .row
+    .offset2.span6
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), :method => :post, :html => {:class => 'form-inline'}) do |f|
+        = f.input :email, :wrapper => :prepend do
+          = content_tag :span, "", :class => "add-on iconic-mail"
+          = f.input_field :email
+        .form-actions
+          = f.button :submit, 'Enviar', :class => 'btn btn-primary'
+      %p 
+        Si habías introducido tu email antes, te enviaremos instrucciones para que resetees tu contraseña a tu correo electrónico.
+
+- content_for :floating_footer_content do
+  %p
+    = "Si no habías introducido tu email, no pasa nada, llámanos y te daremos una nueva contraseña."
