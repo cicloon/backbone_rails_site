@@ -1,3 +1,3 @@
-# Nuestra Boda
+# Weeding Site Example
 
-A geek web developer getting married... of course I made a web app for our wedding!!
+Featuring Rails 3.2 + Backbone.js
